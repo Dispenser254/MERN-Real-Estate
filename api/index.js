@@ -15,14 +15,21 @@ mongoose
   });
 
 const app = express();
-app.use(express.json())
+app.use(express.json());
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
 
-app.use('/api/user', UserRouter)
-app.use('/api/auth', AuthRouter)
+app.use("/api/user", UserRouter);
+app.use("/api/auth", AuthRouter);
 
-
-
+app.use((error, request, response, next) => {
+  const statusCode = error.statusCode || 500;
+  const message = error.message || "Internal Server Error";
+  return response.status(statusCode).json({
+    success: false,
+    statusCode,
+    message,
+  });
+});
