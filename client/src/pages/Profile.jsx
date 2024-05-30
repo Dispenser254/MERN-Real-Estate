@@ -13,6 +13,9 @@ import {
   deleteUserFailure,
   deleteUserStart,
   deleteUserSuccess,
+  signOutUserFailure,
+  signOutUserStart,
+  signOutUserSuccess,
   updateUserFailure,
   updateUserStart,
   updateUserSuccess,
@@ -90,14 +93,29 @@ function Profile() {
       const response = await fetch(`/api/user/delete/${currentUser._id}`, {
         method: "DELETE",
       });
-      const data = await response.json()
+      const data = await response.json();
       if (data.success === false) {
-        dispatch(deleteUserFailure(data.message))
-        return
+        dispatch(deleteUserFailure(data.message));
+        return;
       }
-      dispatch(deleteUserSuccess(data))
+      dispatch(deleteUserSuccess(data));
     } catch (error) {
       dispatch(deleteUserFailure(error.message));
+    }
+  };
+
+  const handleSignout = async () => {
+    try {
+      dispatch(signOutUserStart());
+      const response = await fetch("/api/auth/signout");
+      const data = await response.json();
+      if (data.success === false) {
+        dispatch(signOutUserFailure(data.message));
+        return;
+      }
+      dispatch(signOutUserSuccess(data))
+    } catch (error) {
+      dispatch(signOutUserFailure(error.message));
     }
   };
 
@@ -165,7 +183,9 @@ function Profile() {
         <span onClick={handleDelete} className="text-red-500 cursor-pointer">
           Delete Account
         </span>
-        <span className="text-red-500 cursor-pointer">Sign Out</span>
+        <span onClick={handleSignout} className="text-red-500 cursor-pointer">
+          Sign Out
+        </span>
       </div>
       <p className="text-red-700 mt-5">{error ? error : ""}</p>
       <p className="text-green-700 mt-5">
