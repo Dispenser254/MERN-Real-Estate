@@ -1,6 +1,7 @@
 import express from "express";
 import {
   deleteuser,
+  getuser,
   getUserListings,
   test,
   updateuser,
@@ -13,5 +14,6 @@ router.get("/test", test);
 router.post("/update/:id", verifyUser, updateuser);
 router.delete("/delete/:id", verifyUser, deleteuser);
 router.get("/listings/:id", verifyUser, getUserListings);
+router.get("/:id", verifyUser, getuser);
 
 export default router;
