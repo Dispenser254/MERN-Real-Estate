@@ -11,7 +11,6 @@ Welcome to the MERN-Real-Estate repository! This project is a full-stack real es
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
 - [License](#license)
-- [Contact Information](#contact-information)
 
 ## Project Description
 
@@ -45,38 +44,41 @@ To get started with the project, follow these steps:
 3. Install frontend dependencies:
 
     ```bash
-    Copy code
     cd ../client
     npm install
     
-4. Create a .env file in the server directory and add your environment variables:
+4. Create a .env file in the root directory and add your environment variables:
     ```bash
     MONGO_URI=your_mongodb_uri
     JWT_SECRET=your_jwt_secret
+
+4. Create a .env file in the client directory and add your environment variables:
+    ```bash
+    VITE_FIREBASE_API_KEY=firebase_api_key
     
 ## Usage
-View Listings: Browse through various real estate listings available on the platform.
-Search Listings: Use the search functionality to find listings based on criteria such as location, price, and property type.
-Manage Listings: If you are an authenticated user, you can add, edit, or delete your own listings.
-User Profile: Manage your profile information and view your listed properties.
+- View Listings: Browse through various real estate listings available on the platform.
+- Search Listings: Use the search functionality to find listings based on criteria such as location, price, and property type.
+- Manage Listings: If you are an authenticated user, you can add, edit, or delete your own listings.
+- User Profile: Manage your profile information and view your listed properties.
 
 ## Technologies Used
-MongoDB: Database
-Express.js: Backend framework
-React: Frontend library
-Node.js: Backend runtime environment
-JWT: Authentication
-TailwindCSS: Styling
+- MongoDB: Database
+- Express.js: Backend framework
+- React: Frontend library
+- Node.js: Backend runtime environment
+- JWT: Authentication
+- Tailwind CSS: Styling
 
 ## Contributing
 Contributions are welcome! Please follow these steps to contribute:
 
-Fork the repository.
-Create a new branch (git checkout -b feature-branch).
-Make your changes.
-Commit your changes (git commit -m 'Add some feature').
-Push to the branch (git push origin feature-branch).
-Open a pull request.
+- Fork the repository.
+- Create a new branch (git checkout -b feature-branch).
+- Make your changes.
+- Commit your changes (git commit -m 'Add some feature').
+- Push to the branch (git push origin feature-branch).
+- Open a pull request.
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
