@@ -266,7 +266,6 @@ function CreateListing() {
                 className="p-3 border border-gray-300 rounded-lg"
                 id="regularPrice"
                 min="50"
-                max="1000000"
                 required
                 onChange={handleChange}
                 value={formData.regularPrice}
@@ -283,7 +282,6 @@ function CreateListing() {
                   className="p-3 border border-gray-300 rounded-lg"
                   id="discountPrice"
                   min="0"
-                  max="1000000"
                   required
                   onChange={handleChange}
                   value={formData.discountPrice}

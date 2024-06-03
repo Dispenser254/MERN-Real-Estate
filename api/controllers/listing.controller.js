@@ -84,7 +84,7 @@ export const getlistings = async (request, response, next) => {
     let type = request.query.type;
 
     if (type === undefined || type === "all") {
-      type = { $in: ["sale", "rent"] };
+      type = { $in: ["sell", "rent"] };
     }
 
     const searchTerm = request.query.searchTerm || "";
